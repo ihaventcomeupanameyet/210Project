@@ -12,7 +12,7 @@ The librarian
 
 I am taking WRDS 150 this term, and I am amazed how the UBC library have different library branches to store millions printed documents and DVDs all according the discipline related, while work through the library skill tutorial. A complicated method was introduced in the video tutorial but it is beyond my comprehension. I was deeply impressed on how they keep things in library organized and decide to do something related to this topic.
 
-usecase list:
+## User Stories
 -  As a user, I want to add a new book to the library
 -  As a user, I want to remove a book to the library
 -  As a user, I want to add a record when a book is borrowed from library
