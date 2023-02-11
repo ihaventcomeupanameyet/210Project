@@ -19,32 +19,16 @@ public class Book {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPublisher() {
         return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public String getAuthorName() {
         return authorName;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
     public int getYearPublished() {
         return yearPublished;
-    }
-
-    public void setYearPublished(int yearPublished) {
-        this.yearPublished = yearPublished;
     }
 
     public boolean isAvailable() {
@@ -56,6 +40,7 @@ public class Book {
     }
 
     public String getInfo() {
-        return ""; //stub
+        return "Book name: " + name + " Author:"
+                + authorName + " Publisher: " + publisher + " Year published: " + yearPublished;
     }
 }
