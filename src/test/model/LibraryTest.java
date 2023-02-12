@@ -291,5 +291,12 @@ public class LibraryTest {
         } catch (NoBookException ex) {
             fail();//No exception should be thrown
         }
+
+        try {
+            assertEquals(d.getInfo(),a.listBookInfo("Calculus IV"));
+            fail();// won't run if method act accordingly
+        } catch (NoBookException ex) {
+            //
+        }
     }
 }

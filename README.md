@@ -20,4 +20,5 @@ I am taking WRDS 150 this term, and I am amazed how the UBC library have differe
 - As a user, I want to list all book belongs to the library
 - As a user, I want to list all borrowed book with it's expected return date
 - As a user, I want to list all book that is currently in stock
+- As a user, I want to remove a borrow record when 
 

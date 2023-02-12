@@ -6,9 +6,10 @@ import exception.NoBookException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Library {
-    private static final int fine = 5;
+    public static final int fine = 5;
     private List<Book> allBooks;
     private List<BorrowRecord> records;
 
@@ -60,10 +61,6 @@ public class Library {
         }
 
         Book a = findBook(bookName);
-        if (a == null) {
-            throw new NoBookException();
-        }
-
         records.remove(b);
         a.setAvailable(true);
         return b.checkLate();
@@ -143,7 +140,7 @@ public class Library {
     // search in library and return a book with given name or null is book can't be found
     private Book findBook(String bookName) {
         for (Book b : allBooks) {
-            if (bookName == b.getName()) {
+            if (bookName.equals(b.getName())) {
                 return b;
             }
         }
@@ -154,19 +151,20 @@ public class Library {
     // search in borrow record and return a borrow record
     // with given name or null is borrow record can't be found
     private BorrowRecord findRecord(String bookName) {
+        BorrowRecord a = null;
         for (BorrowRecord b : records) {
-            if (bookName == b.getBookName()) {
-                return b;
+            if (bookName.equals(b.getBookName())) {
+                a = b;
             }
         }
-        return null;
+        return a;
     }
 
     // EFFECTS: private helper function
     // return true if book has a duplicate name to current collection of books
     private boolean checkDuplicate(Book a) {
         for (Book b : allBooks) {
-            if (a.getName() == b.getName()) {
+            if (a.getName().equals(b.getName())) {
                 return true;
             }
         }
