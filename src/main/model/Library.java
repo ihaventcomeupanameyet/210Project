@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Library {
-    public static final int fine = 5;
+    private static final int fine = 5;
     private List<Book> allBooks;
     private List<BorrowRecord> records;
 
@@ -169,5 +169,9 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public int getFine() {
+        return fine;
     }
 }

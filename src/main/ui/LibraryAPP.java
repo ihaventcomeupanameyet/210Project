@@ -4,7 +4,6 @@ import exception.DuplicateBookException;
 import exception.NoBookException;
 import model.*;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class LibraryAPP {
@@ -93,12 +92,11 @@ public class LibraryAPP {
     // MODIFIES: this
     // EFFECTS:  try to add new book, will do nothing if book with same name is
     // already in the library
-    private void addBook() throws Exception {
+    private void addBook() {
         String name;
         String publisher;
         String authorName;
         int publishYear;
-        boolean a = true;
         System.out.println("Enter book name: ");
         name = input.nextLine();
         System.out.println("Enter publisher: ");
@@ -165,6 +163,7 @@ public class LibraryAPP {
         }
     }
 
+    // EFFECTS: Listing different info related to library base on user input
     private void info() {
         String command;
         Boolean run = true;
@@ -188,6 +187,7 @@ public class LibraryAPP {
         }
     }
 
+    // EFFECTS: print an info option menu on screen
     private void displayInfoMenu() {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> List all book belongs to the library");
@@ -196,6 +196,7 @@ public class LibraryAPP {
         System.out.println("\tq -> quit");
     }
 
+    // EFFECTS: try to return a book and delete borrow record from library
     private void returnBook() {
         String bookName;
         System.out.println("Enter book name: ");
@@ -204,7 +205,8 @@ public class LibraryAPP {
             if (lib.returnBook(bookName)) {
                 System.out.println("Book return within expected return date.\n");
             } else {
-                System.out.println("Book return after expected return date, " + lib.fine + "dollar fine is applied.\n");
+                System.out.println("Book return after expected return date, "
+                        + lib.getFine() + "dollar fine is applied.\n");
             }
         } catch (NoBookException e) {
             System.err.println("Given book name can not be found in borrow record. \n");

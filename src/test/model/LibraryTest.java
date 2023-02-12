@@ -299,4 +299,9 @@ public class LibraryTest {
             //
         }
     }
+
+    @Test
+    void TestGetFine() {
+        assertEquals(5, a.getFine());
+    }
 }
