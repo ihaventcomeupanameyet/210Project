@@ -2,7 +2,7 @@
 
 ## What will the application do?
 
-This application keeps the digitalized record of library activity, including add new book to a list of book records including information like author name, publisher, year published and book name. It also keeps a record on book when it is borrowed, including who borrowed the book, date when it is borrowed and expected date of return.
+This application keeps the digitalized record of library activity, including add new book to a list of book records including information like author name, publisher, year published and book name. It also keeps a record on book when it is borrowed, including who borrowed the book, date when book is borrowed and expected date of return.
 
 ## Who will use it?
 
