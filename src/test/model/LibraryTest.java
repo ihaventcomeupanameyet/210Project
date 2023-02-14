@@ -202,6 +202,14 @@ public class LibraryTest {
         assertEquals(3,a.sizeOfCollection());
         assertEquals(1,a.sizeOfBorrowRecord());
 
+        //check if attempt to return book not in the list
+        try {
+            a.returnBook("Linear Algebra");
+            fail(); // won't run if method act accordingly
+        } catch (NoBookException ex) {
+            //
+        }
+
         //check return a book within expected date
         try {
             assertTrue(a.returnBook(e.getBookName()));
@@ -209,9 +217,9 @@ public class LibraryTest {
             fail(); //No exception should be thrown
         }
 
-        //check if attempt to return book not in record list can be detected
+        //check if attempt to return book when record list is empty
         try {
-            assertTrue(a.returnBook(e.getBookName()));
+            a.returnBook(e.getBookName());
             fail(); // won't run if method act accordingly
         } catch (NoBookException ex) {
             //
