@@ -196,6 +196,7 @@ public class LibraryAPP {
         System.out.println("\tq -> quit");
     }
 
+    // MODIFIES: this
     // EFFECTS: try to return a book and delete borrow record from library
     private void returnBook() {
         String bookName;
