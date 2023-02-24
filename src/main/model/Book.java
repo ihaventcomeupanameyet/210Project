@@ -1,5 +1,6 @@
 package model;
 
+// Book info kept by the library
 public class Book {
     private String name;
     private String publisher;

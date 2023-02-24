@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+// Borrow records kept by the library
 public class BorrowRecord {
     private String name;
     private String bookName;

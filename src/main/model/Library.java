@@ -7,7 +7,7 @@ import exception.NoBookException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// Library class stores books and borrow records
 public class Library {
     private static final int fine = 5;
     private List<Book> allBooks;
