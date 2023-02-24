@@ -1,6 +1,10 @@
 package model;
 
-public class Book {
+import org.json.JSONObject;
+import persistence.Write;
+
+// Book info kept by the library
+public class Book implements Write {
     private String name;
     private String publisher;
     private String authorName;
@@ -42,5 +46,15 @@ public class Book {
     public String getInfo() {
         return "Book name: " + name + " Author:"
                 + authorName + " Publisher: " + publisher + " Year published: " + yearPublished;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject a = new JSONObject();
+        a.put("name", name);
+        a.put("publisher", publisher);
+        a.put("authorName", authorName);
+        a.put("yearPublished", yearPublished);
+        return a;
     }
 }

@@ -1,8 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Write;
+
 import java.time.LocalDate;
 
-public class BorrowRecord {
+// Borrow records kept by the library
+public class BorrowRecord implements Write {
     private String name;
     private String bookName;
     private LocalDate borrowDate;
@@ -31,6 +35,11 @@ public class BorrowRecord {
         return expectedReturnDate;
     }
 
+
+    public void setBorrowDate(LocalDate borrowDate) {
+        this.borrowDate = borrowDate;
+    }
+
     public void setExpectedReturnDate(LocalDate expectedReturnDate) {
         this.expectedReturnDate = expectedReturnDate;
     }
@@ -45,5 +54,22 @@ public class BorrowRecord {
     public String getInfo() {
         return  "Borrower : " + name + " Book name:"
                 + bookName + " Date borrowed: " + borrowDate + " Expected return date: " + expectedReturnDate;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        // LocalDate.now().withYear(2000).withMonth(12).withDayOfMonth(31)
+        JSONObject a = new JSONObject();
+        a.put("name", name);
+        a.put("bookName", bookName);
+
+        a.put("borrowYear",borrowDate.getYear());
+        a.put("borrowMonth",borrowDate.getMonthValue());
+        a.put("borrowDay",borrowDate.getDayOfMonth());
+
+        a.put("returnYear",expectedReturnDate.getYear());
+        a.put("returnMonth",expectedReturnDate.getMonthValue());
+        a.put("returnDay",expectedReturnDate.getDayOfMonth());
+        return a;
     }
 }

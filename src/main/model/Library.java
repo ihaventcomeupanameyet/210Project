@@ -2,13 +2,15 @@ package model;
 
 import exception.DuplicateBookException;
 import exception.NoBookException;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Write;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Library {
+// Library class stores books and borrow records
+public class Library implements Write {
     private static final int fine = 5;
     private List<Book> allBooks;
     private List<BorrowRecord> records;
@@ -173,5 +175,31 @@ public class Library {
 
     public int getFine() {
         return fine;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject a = new JSONObject();
+        a.put("allBooks",bookToJson());
+        a.put("records",recordToJson());
+        return a;
+    }
+
+    // EFFECTS: return allBooks as a JSON Array
+    private JSONArray bookToJson() {
+        JSONArray a = new JSONArray();
+        for (Book b : allBooks) {
+            a.put(b.toJson());
+        }
+        return a;
+    }
+
+    // EFFECTS: return records as a JSON Array
+    private JSONArray recordToJson() {
+        JSONArray a = new JSONArray();
+        for (BorrowRecord b : records) {
+            a.put(b.toJson());
+        }
+        return a;
     }
 }

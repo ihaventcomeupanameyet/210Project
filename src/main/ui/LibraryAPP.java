@@ -3,7 +3,11 @@ package ui;
 import exception.DuplicateBookException;
 import exception.NoBookException;
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class LibraryAPP {
@@ -11,6 +15,9 @@ public class LibraryAPP {
     private Scanner input;
     private Boolean run;
     private String command;
+    private static final String data = "./data/Library.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: run the library app
     public LibraryAPP() {
@@ -41,8 +48,13 @@ public class LibraryAPP {
                 info();
             } else if (command.equals("f")) {
                 returnBook();
+            } else if (command.equals("s")) {
+                save();
+            } else if (command.equals("l")) {
+                load();
             } else if (command.equals("q")) {
                 run = false;
+                remindSave();
             } else {
                 System.out.println("Invalid command, try again.");
             }
@@ -57,6 +69,8 @@ public class LibraryAPP {
         input = new Scanner(System.in);
         run = true;
         command = null;
+        jsonWriter = new JsonWriter(data);
+        jsonReader = new JsonReader(data);
         Book b = new Book("Discrete Math", "UBC Book store", "Math Nerd", 2020);
         Book c = new Book("Linear Algebra", "UBC Book store", "Math Nerd", 2020);
         Book d = new Book("Calculus III", "UBC Book store", "Math Nerd", 2020);
@@ -86,6 +100,8 @@ public class LibraryAPP {
         System.out.println("\td -> Add a borrow record");
         System.out.println("\te -> List detailed info about library collection");
         System.out.println("\tf -> Remove a borrow record");
+        System.out.println("\ts -> Save change to a file");
+        System.out.println("\tl -> Load data from file");
         System.out.println("\tq -> quit");
     }
 
@@ -211,6 +227,39 @@ public class LibraryAPP {
             }
         } catch (NoBookException e) {
             System.err.println("Given book name can not be found in borrow record. \n");
+        }
+    }
+
+    private void save() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(lib);
+            jsonWriter.close();
+            System.out.println("Saved data at file:" + data + "\n");
+        } catch (FileNotFoundException e) {
+            System.err.println("No such file:" + data + "\n");
+        }
+    }
+
+    private void load() {
+        try {
+            lib = jsonReader.read();
+            System.out.println("Loaded from " + data);
+        } catch (IOException e) {
+            System.err.println("No such file:" + data + "\n");
+        } catch (Exception e) {
+            //
+        }
+    }
+
+    private void remindSave() {
+        System.out.println("\nBefore exit the program, would you like to save the change?");
+        System.out.println("\ty -> yes please");
+        System.out.println("\tany key -> no thanks");
+        String command;
+        command = input.nextLine().toLowerCase();
+        if (command.equals("y")) {
+            save();
         }
     }
 }

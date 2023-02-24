@@ -1,0 +1,32 @@
+{
+    "records": [{
+        "borrowDay": 6,
+        "borrowMonth": 3,
+        "borrowYear": 2023,
+        "name": "John",
+        "returnMonth": 4,
+        "returnYear": 2023,
+        "bookName": "Discrete Math",
+        "returnDay": 6
+    }],
+    "allBooks": [
+        {
+            "authorName": "Math Nerd",
+            "name": "Discrete Math",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
+        },
+        {
+            "authorName": "Math Nerd",
+            "name": "Linear Algebra",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
+        },
+        {
+            "authorName": "Math Nerd",
+            "name": "Calculus III",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
+        }
+    ]
+}
