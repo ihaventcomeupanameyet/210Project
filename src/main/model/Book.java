@@ -11,6 +11,7 @@ public class Book implements Write {
     private int yearPublished;
     private boolean available;
 
+    // EFFECTS: Create a new book with given name, publisher, author name and year published
     public Book(String name, String publisher, String authorName, int yearPublished) {
         this.name = name;
         this.publisher = publisher;
@@ -43,6 +44,7 @@ public class Book implements Write {
         this.available = available;
     }
 
+    // EFFECT: Return a string contain information about the book
     public String getInfo() {
         return "Book name: " + name + " Author:"
                 + authorName + " Publisher: " + publisher + " Year published: " + yearPublished;

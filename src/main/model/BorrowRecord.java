@@ -12,6 +12,8 @@ public class BorrowRecord implements Write {
     private LocalDate borrowDate;
     private LocalDate expectedReturnDate;
 
+    // EFFECTS: Create a new borrow record with given name and book name with borrowDate set as today
+    // and return date set one month later
     public BorrowRecord(String name, String bookName) {
         this.name = name;
         this.bookName = bookName;

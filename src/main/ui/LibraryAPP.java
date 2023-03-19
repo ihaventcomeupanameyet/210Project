@@ -230,6 +230,7 @@ public class LibraryAPP {
         }
     }
 
+    // EFFECTS: Save the current program state to a file
     private void save() {
         try {
             jsonWriter.open();
@@ -241,6 +242,8 @@ public class LibraryAPP {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Load the previous program state of a library
     private void load() {
         try {
             lib = jsonReader.read();
@@ -252,6 +255,7 @@ public class LibraryAPP {
         }
     }
 
+    // EFFECTS: remind user to save program state before quiting the program
     private void remindSave() {
         System.out.println("\nBefore exit the program, would you like to save the change?");
         System.out.println("\ty -> yes please");
