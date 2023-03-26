@@ -4,6 +4,7 @@ import model.Library;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import ui.LibraryGUI;
+import ui.tools.frames.PopUp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ public class Load extends Tool {
     private static final String data = "./data/Library.json";
     private JsonReader reader;
 
-    public Load(Library lib, JComponent parent) {
+    public Load(LibraryGUI lib, JComponent parent) {
         super(lib, parent);
         reader = new JsonReader(data);
     }
@@ -28,7 +29,9 @@ public class Load extends Tool {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            lib = reader.read();
+            lib.setLib(reader.read());
+            new PopUp("Load success",
+                    "Load file from: " + data, "Got it!");
         } catch (IOException c) {
             System.err.println("No such file:" + data + "\n");
         } catch (Exception c) {

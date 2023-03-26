@@ -32,6 +32,7 @@ public class NewBook extends JFrame implements ActionListener {
         add(panel,BorderLayout.NORTH);
         add(add, BorderLayout.SOUTH);
         pack();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -71,11 +72,15 @@ public class NewBook extends JFrame implements ActionListener {
             Book temp = new Book(name.getText(), publisher.getText(),
                     author.getText(), Integer.parseInt(yearPublished.getText()));
             lib.addBook(temp);
+            new JOptionPane().showMessageDialog(this,
+                    "New book added!", "Done", JOptionPane.PLAIN_MESSAGE);
             dispose();
         } catch (DuplicateBookException ex) {
-            //
+            new JOptionPane().showMessageDialog(this,
+                    "We already have this book!", "Fail to add to library", JOptionPane.PLAIN_MESSAGE);
         } catch (Exception c) {
-            //
+            new JOptionPane().showMessageDialog(this,
+                    "Should input integer for publish year", "Bad input", JOptionPane.PLAIN_MESSAGE);
         }
     }
 }

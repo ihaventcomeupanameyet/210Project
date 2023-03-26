@@ -1,9 +1,17 @@
 {
     "records": [],
-    "allBooks": [{
-        "authorName": "Me",
-        "name": "My Book",
-        "publisher": "s",
-        "yearPublished": 2000
-    }]
+    "allBooks": [
+        {
+            "authorName": "Math Nerd",
+            "name": "Discrete Math",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
+        },
+        {
+            "authorName": "Math Nerd",
+            "name": "Linear Algebra",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
+        }
+    ]
 }

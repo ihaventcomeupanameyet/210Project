@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 
 public abstract class Tool implements ActionListener {
     protected JButton button;
-    protected Library lib;
+    protected LibraryGUI lib;
 
-    public Tool(Library lib, JComponent parent) {
+    public Tool(LibraryGUI lib, JComponent parent) {
         this.lib = lib;
         button = new JButton(getLabel());
         button.addActionListener(this);

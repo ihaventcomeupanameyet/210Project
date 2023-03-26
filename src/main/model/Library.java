@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import persistence.Write;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 // Library class stores books and borrow records
@@ -201,5 +203,13 @@ public class Library implements Write {
             a.put(b.toJson());
         }
         return a;
+    }
+
+    public List<Book> getAllBooks() {
+        return Collections.unmodifiableList(allBooks);
+    }
+
+    public List<BorrowRecord> getRecords() {
+        return Collections.unmodifiableList(records);
     }
 }

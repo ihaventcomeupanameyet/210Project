@@ -1,25 +1,24 @@
 package ui.tools;
 
-import model.Library;
 import ui.LibraryGUI;
-import ui.tools.frames.NewBook;
+import ui.tools.frames.RemoveRecordForm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class AddBook extends Tool {
+public class RemoveRecord extends Tool {
 
-    public AddBook(LibraryGUI lib, JComponent parent) {
+    public RemoveRecord(LibraryGUI lib, JComponent parent) {
         super(lib, parent);
     }
 
     @Override
     public String getLabel() {
-        return "Add book to library";
+        return "Remove record";
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new NewBook(lib.getLib());
+        new RemoveRecordForm(lib.getLib());
     }
 }

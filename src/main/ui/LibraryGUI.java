@@ -21,6 +21,7 @@ public class LibraryGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(width,height));
         initTools();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -30,14 +31,34 @@ public class LibraryGUI extends JFrame {
         toolArea.setSize(new Dimension(0, 0));
         add(toolArea, BorderLayout.CENTER);
 
-        Save save = new Save(lib, toolArea);
+        Save save = new Save(this, toolArea);
         toolList.add(save);
 
-        Load load = new Load(lib, toolArea);
+        Load load = new Load(this, toolArea);
         toolList.add(load);
 
-        AddBook addBook = new AddBook(lib, toolArea);
+        AddBook addBook = new AddBook(this, toolArea);
         toolList.add(addBook);
+
+        ListInfo info = new ListInfo(this,toolArea);
+        toolList.add(info);
+
+        AddRecord addRecord = new AddRecord(this,toolArea);
+        toolList.add(addRecord);
+
+        RemoveBook remove = new RemoveBook(this,toolArea);
+        toolList.add(remove);
+
+        RemoveRecord removeRecord = new RemoveRecord(this,toolArea);
+        toolList.add(removeRecord);
+    }
+
+    public Library getLib() {
+        return lib;
+    }
+
+    public void setLib(Library lib) {
+        this.lib = lib;
     }
 
     public static void main(String[] args) {
