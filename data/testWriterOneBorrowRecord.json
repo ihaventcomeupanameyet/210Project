@@ -1,13 +1,13 @@
 {
     "records": [{
-        "borrowDay": 7,
+        "borrowDay": 28,
         "borrowMonth": 3,
         "borrowYear": 2023,
         "name": "John",
         "returnMonth": 4,
         "returnYear": 2023,
         "bookName": "Discrete Math",
-        "returnDay": 7
+        "returnDay": 28
     }],
     "allBooks": [
         {

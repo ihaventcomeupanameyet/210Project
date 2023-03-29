@@ -40,8 +40,8 @@ public class LibraryTest {
     @Test
     void TestConstructor() {
         a = new Library();
-        assertEquals(0,a.sizeOfCollection());
-        assertEquals(0,a.sizeOfBorrowRecord());
+        assertEquals(0,a.getAllBooks().size());
+        assertEquals(0,a.getRecords().size());
     }
     @Test
     void TestAddBook() {
