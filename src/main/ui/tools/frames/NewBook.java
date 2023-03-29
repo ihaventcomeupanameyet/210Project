@@ -3,10 +3,13 @@ package ui.tools.frames;
 import exception.DuplicateBookException;
 import model.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class NewBook extends JFrame implements ActionListener {
     private JButton add;
@@ -17,16 +20,23 @@ public class NewBook extends JFrame implements ActionListener {
     private JTextField yearPublished;
     private JPanel panel;
 
+    // form to add book to the library
     public NewBook(Library lib) {
         this.lib = lib;
         panel = new JPanel();
         panel.setLayout(new GridLayout(0,1));
         panel.setSize(new Dimension(0, 0));
         setLayout(new BorderLayout());
-        //setMinimumSize(new Dimension(300, 200));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setTextField();
+        try {
+            JLabel label = new JLabel(new ImageIcon(ImageIO.read(new File("./data/Library.jpg"))));
+            label.setPreferredSize(new Dimension(300,300));
+            add(label);
+        } catch (IOException e) {
+            new JOptionPane().showMessageDialog(this,
+                    "Fail to load back ground", "No background!", JOptionPane.PLAIN_MESSAGE);
+        }
         add = new JButton("Add to library");
         add.addActionListener(this);
         add(panel,BorderLayout.NORTH);
@@ -37,6 +47,8 @@ public class NewBook extends JFrame implements ActionListener {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: Set size and label for the text field
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void setTextField() {
         Dimension textSize = new Dimension(250,40);
@@ -66,6 +78,9 @@ public class NewBook extends JFrame implements ActionListener {
         panel.add(yearPublished);
     }
 
+    // MODIFIES: this
+    // EFFECTS: add new book to the library, unless there is already a book with same name or invalid input detected
+    // for the published year
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -80,7 +95,7 @@ public class NewBook extends JFrame implements ActionListener {
                     "We already have this book!", "Fail to add to library", JOptionPane.PLAIN_MESSAGE);
         } catch (Exception c) {
             new JOptionPane().showMessageDialog(this,
-                    "Should input integer for publish year", "Bad input", JOptionPane.PLAIN_MESSAGE);
+                    "Should input integer for published year", "Bad input", JOptionPane.PLAIN_MESSAGE);
         }
     }
 }

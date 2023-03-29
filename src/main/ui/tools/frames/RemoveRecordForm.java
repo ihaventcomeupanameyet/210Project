@@ -8,13 +8,16 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+// form to return book
 public class RemoveRecordForm extends Form {
 
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    // create a remove record form
     public RemoveRecordForm(Library lib) {
         super(lib, "Remove record");
     }
 
+    // MODIFIES: this
+    // EFFECTS: return a book to the library
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -34,6 +37,8 @@ public class RemoveRecordForm extends Form {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: populate the drop-down menu with book names that is not available(i.e. borrowed by someone)
     @Override
     protected void populateList() {
         List<BorrowRecord> temp = lib.getRecords();

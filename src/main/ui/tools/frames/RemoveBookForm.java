@@ -8,11 +8,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+// form to remove book from library
 public class RemoveBookForm extends Form {
+    //EFFECTS: create a remove book form
     public RemoveBookForm(Library lib) {
         super(lib, "Remove book");
     }
 
+    // MODIFIES: this
+    // EFFECTS: populate the drop-down menu with book names that is available
     @Override
     protected void populateList() {
         List<Book> temp = lib.getAllBooks();
@@ -28,6 +32,7 @@ public class RemoveBookForm extends Form {
 
     }
 
+    //EFFECTS: remove selected book from the library
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

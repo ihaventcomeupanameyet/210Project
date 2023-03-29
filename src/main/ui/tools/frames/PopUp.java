@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class PopUp extends JFrame implements ActionListener {
 
+    // EFFECTS: create a popup with given title, message and button label
     public PopUp(String title, String message, String buttonLabel) {
         super(title);
         JPanel a = new JPanel();
@@ -24,6 +25,7 @@ public class PopUp extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // EFFECT: close the popup once a button is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
         dispose();

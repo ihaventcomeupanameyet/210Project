@@ -7,12 +7,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Information menu
 public class InfoMenu extends JFrame implements ActionListener {
     private JButton allBook;
     private JButton availableBook;
     private JButton borrowRecord;
     private Library lib;
 
+    // EFFECTS: create a info menu
     public InfoMenu(Library lib) {
         this.lib = lib;
         allBook = new JButton("List all collection");
@@ -31,6 +33,7 @@ public class InfoMenu extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // EFFECT: create a new popup window that contains the information requested
     @Override
     public void actionPerformed(ActionEvent e) {
         String a;

@@ -24,3 +24,14 @@ I am taking WRDS 150 this term, and I am amazed how the UBC library have differe
 - As a user, I want to have option to save any change I made to the library in a file
 - As a user, I want to have option to load data from the file I saved before
 
+## Instruction for the grader
+- you can add a new book to library by click add new book to library and enter 4 fields to add a new book to library then click confirm
+- you can remove a book from library by click remove book and select the book you want to remove via drop-down list then click confirm
+- you can add a new borrow record by click add borrow record, select book via drop-down list, enter the name of borrower and then click confirm
+- you can list all book belongs to the library by click list information and then click list all collection button
+- you can list all borrow record by click list information and then click list borrow record button
+- you can list all book that is currently in stock by click list information and then click list available book button
+- you can remove a borrow record from library by click remove borrow record option and then select the book to return via a drop-down menu list and then click confirm
+- you can save changes to a file by click save changes button
+- you can load changes to a file by click load from file button
+- Visual component can be found inside add record and add new book to library

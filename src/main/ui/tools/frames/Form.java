@@ -6,11 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+// Form that includes a drop-down menu
 public abstract class Form extends JFrame implements ActionListener {
     protected Library lib;
     protected JComboBox<String> box;
     protected JButton confirm;
 
+    // EFFECTS: create a form
     public Form(Library lib, String text) {
         this.lib = lib;
         box = new JComboBox<>();
@@ -33,7 +35,11 @@ public abstract class Form extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: populate the list
     protected abstract void populateList();
 
+    // MODIFIES: this
+    // EFFECTS: add more components to the form if needed
     protected abstract void moreComponent(JPanel panel);
 }
