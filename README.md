@@ -35,3 +35,7 @@ I am taking WRDS 150 this term, and I am amazed how the UBC library have differe
 - you can save changes to a file by click save changes button
 - you can load changes to a file by click load from file button
 - Visual component can be found inside add record and add new book to library
+
+## Phase 4: Task 3
+
+- If I have more time, I will apply Singleton design pattern to Library class, since I only need one instance of Library for this program, and I have passing this instance everywhere when implementing my GUI 
