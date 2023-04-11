@@ -30,6 +30,7 @@ public class Library implements Write {
         if (checkDuplicate(a)) {
             throw new DuplicateBookException();
         }
+        EventLog.getInstance().logEvent(new Event("A new book has been added: " + a.getInfo()));
         allBooks.add(a);
     }
 
@@ -45,6 +46,7 @@ public class Library implements Write {
         if (b.isAvailable()) {
             b.setAvailable(false);
             records.add(a);
+            EventLog.getInstance().logEvent(new Event("A borrow record has been added: " + a.getInfo()));
             return true;
         } else {
             return false;
@@ -67,6 +69,7 @@ public class Library implements Write {
         Book a = findBook(bookName);
         records.remove(b);
         a.setAvailable(true);
+        EventLog.getInstance().logEvent(new Event("A book has been returned from borrower: " + bookName));
         return b.checkLate();
     }
 
@@ -82,6 +85,7 @@ public class Library implements Write {
 
         if (a.isAvailable()) {
             allBooks.remove(a);
+            EventLog.getInstance().logEvent(new Event("A book has been removed from library: " + bookName));
             return true;
         } else {
             return false;

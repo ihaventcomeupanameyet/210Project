@@ -44,6 +44,7 @@ public class RemoveBookForm extends Form {
                 new PopUp("Remove fail",
                         "This book is currently not available, ","Got it!");
             }
+            dispose();
         } catch (NoBookException ex) {
             new JOptionPane().showMessageDialog(this,
                     "Fail to remove book", "No book found!", JOptionPane.PLAIN_MESSAGE);

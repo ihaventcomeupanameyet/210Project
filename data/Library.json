@@ -12,6 +12,12 @@
             "name": "Linear Algebra",
             "publisher": "UBC Book store",
             "yearPublished": 2020
+        },
+        {
+            "authorName": "Math Nerd",
+            "name": "Calculus III",
+            "publisher": "UBC Book store",
+            "yearPublished": 2020
         }
     ]
 }
