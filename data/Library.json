@@ -1,5 +1,14 @@
 {
-    "records": [],
+    "records": [{
+        "borrowDay": 10,
+        "borrowMonth": 8,
+        "borrowYear": 2023,
+        "name": "Math Nerd",
+        "returnMonth": 9,
+        "returnYear": 2023,
+        "bookName": "Linear Algebra",
+        "returnDay": 10
+    }],
     "allBooks": [
         {
             "authorName": "Math Nerd",
